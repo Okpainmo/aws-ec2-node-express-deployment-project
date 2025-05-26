@@ -83,10 +83,16 @@ NODE_ENV="development"
 
 1a. Using this template is simple. The main criteria being that you know how to use typescript, and that you have Docker installed on your machine.
 
-1b. Create a project repository(using this as a template), and settle in to start working.
+1b. Create/Bootstrap a project repository(using this as a template).
+
+1c. On Github(from your github interface), copy out and carefully save the contents of all the respective environmental variables files(`.env`, `.env.development`, `.env.staging`, and `.env.production`), then delete all of them - still using the github interface.
+
+> **This step is necessary, to untrack all the environmental variables files, and enable you re-create and ignore them with git after you clone your newly created/bootstrapped project**.
+
+1d. Now clone your project, and settle in to start working
 
 ```bash
-git clone your-new-project-repo-url
+git clone your-project-url
 
 cd your-project-name
 ```
@@ -109,21 +115,7 @@ npm install axios bcryptjs cookie-parser cors dayjs dotenv express mongoose node
 npm install @types/cookie-parser @types/cors @types/express @types/node @types/nodemailer @typescript-eslint/parser prisma eslint eslint-config-prettier eslint-plugin-prettier lint-staged pino-pretty prettier ts-node tsx typescript dotenv-cli @typescript-eslint/eslint-plugin @eslint/js husky @commitlint/cli @commitlint/config-conventional @types/bcrypt @types/jsonwebtoken --save-dev
 ```
 
-2b. Update your husky pre-commit script(`.husky` > `pre-commit`) - replace the content with this.
-
-```bash
-npx lint-staged && npm run build
-```
-
-Also update the husky commit-msg(`.husky` > `commit-msg`) script with this:
-
-```bash
-npx --no -- commitlint --edit
-```
-
-> P.S: No need to worry, if the content of both files already match what you're supposed to add as instructed above. If so, simply ignore updating them.
-
-2c. Pull in the mongodb and postgresql docker images
+2b. Pull in the mongodb and postgresql docker images
 
 ```bash
 docker pull mongodb/mongodb-community-server # mongodb
