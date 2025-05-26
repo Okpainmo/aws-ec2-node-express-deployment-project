@@ -2,13 +2,13 @@
 import express from 'express';
 import type { Request, Response } from 'express';
 import dotenv from 'dotenv';
-import cors from 'cors';
+// import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import log from './utils/logger.js';
 import { URL } from 'url';
 
 // DB imports
-import connectMongoDb from './db/connect-mongodb.js';
+// import connectMongoDb from './db/connect-mongodb.js';
 import connectPostgres from './db/connect-postgres.js';
 
 // routes imports
@@ -20,26 +20,26 @@ import adminRouter from './domains/admin/router/admin.router.js';
 const app = express();
 dotenv.config();
 
-const allowedOrigins =
-  process.env.NODE_ENV === 'production' ? ['https://mydomain.com'] : ['http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:5173'];
+// const allowedOrigins =
+//   process.env.NODE_ENV === 'production' ? ['https://mydomain.com'] : ['http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:5173'];
 
-app.use(
-  cors({
-    credentials: true,
-    origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps or curl requests)
-      if (!origin) return callback(null, true);
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: (origin, callback) => {
+//       // Allow requests with no origin (like mobile apps or curl requests)
+//       if (!origin) return callback(null, true);
 
-      if (allowedOrigins.indexOf(origin) === -1) {
-        const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-        return callback(new Error(msg), false);
-      }
-      return callback(null, true);
-    },
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'email']
-  })
-);
+//       if (allowedOrigins.indexOf(origin) === -1) {
+//         const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+//         return callback(new Error(msg), false);
+//       }
+//       return callback(null, true);
+//     },
+//     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type', 'Authorization', 'email']
+//   })
+// );
 
 app.use(cookieParser());
 app.use(express.json());
@@ -75,18 +75,18 @@ app.use(`/api/v1/admin`, adminRouter);
 const port = process.env.PORT || 5000;
 
 const start = async () => {
-  const mongoDb_URI = process.env.MONGO_DB_URI;
+  // const mongoDb_URI = process.env.MONGO_DB_URI;
 
   try {
     log.info(`Establishing database connection...`);
-    const mongoDbConnection = await connectMongoDb(mongoDb_URI);
+    // const mongoDbConnection = await connectMongoDb(mongoDb_URI);
 
-    if (mongoDbConnection) {
-      log.info(
-        `...................................\nConnected to: ${mongoDbConnection?.connection.host}\nEnvironment: ${process.env.NODE_ENV}
-      \nMongoDB connected successfully \n........................................................`
-      );
-    }
+    // if (mongoDbConnection) {
+    //   log.info(
+    //     `...................................\nConnected to: ${mongoDbConnection?.connection.host}\nEnvironment: ${process.env.NODE_ENV}
+    //   \nMongoDB connected successfully \n........................................................`
+    //   );
+    // }
 
     await connectPostgres();
     const parsedUrl = new URL(process.env.POSTGRES_DATABASE_URL as string);
