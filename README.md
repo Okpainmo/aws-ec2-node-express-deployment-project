@@ -81,15 +81,15 @@ NODE_ENV="development"
 
 ## How To Use This Template.
 
-1a. Using this template is simple. The main criteria being that you know how to use typescript, and that you have Docker installed on your machine.
+1. Using this template is simple. The main criteria being that you know how to use typescript, and that you have Docker installed on your machine.
 
-1b. Create/Bootstrap a project repository(using this as a template).
+2. Create/Bootstrap a project repository(using this as a template).
 
-1c. On Github(from your github interface), copy out and carefully save the contents of all the respective environmental variables files(`.env`, `.env.development`, `.env.staging`, and `.env.production`), then delete all of them - still using the github interface.
+3. Before you clone: while still on Github(from your github interface), copy out and carefully save the contents of all the respective environmental variables files(`.env`, `.env.development`, `.env.staging`, and `.env.production`), then delete all of them - still using the github interface.
 
-> **This step is necessary, to untrack all the environmental variables files, and enable you re-create and ignore them with git after you clone your newly created/bootstrapped project**.
+> **This step is necessary, to untrack all the(intentionally added) environmental variables files, and enable you re-create and have them ignored with Git, after you clone your newly created/bootstrapped project**.
 
-1d. Now clone your project, and settle in to start working
+4. Now clone your project, and settle in to start working
 
 ```bash
 git clone your-project-url
@@ -97,7 +97,9 @@ git clone your-project-url
 cd your-project-name
 ```
 
-2a. Proceed to install all dependencies and dev-dependencies.
+5. Re-create all the environmental variables files earlier deleted - this time, you're sure not to have any issues with Git ignoring them, since they are no longer being tracked.
+
+6. Proceed to install all dependencies and dev-dependencies.
 
 **with current project versions**:
 
@@ -115,7 +117,7 @@ npm install axios bcryptjs cookie-parser cors dayjs dotenv express mongoose node
 npm install @types/cookie-parser @types/cors @types/express @types/node @types/nodemailer @typescript-eslint/parser prisma eslint eslint-config-prettier eslint-plugin-prettier lint-staged pino-pretty prettier ts-node tsx typescript dotenv-cli @typescript-eslint/eslint-plugin @eslint/js husky @commitlint/cli @commitlint/config-conventional @types/bcrypt @types/jsonwebtoken --save-dev
 ```
 
-2b. Pull in the mongodb and postgresql docker images
+7. Pull in the mongodb and postgresql docker images
 
 ```bash
 docker pull mongodb/mongodb-community-server # mongodb
@@ -125,7 +127,7 @@ docker pull mongodb/mongodb-community-server # mongodb
 docker pull postgres # postgres
 ```
 
-3. Setup and start the databases.
+8. Setup and start the databases.
 
 **Option 1a: start them individually(PostgreSQL)**.
 
@@ -193,7 +195,7 @@ docker compose up -d
 
 CONNECT YOUR DATABASES TO A POSTGRESQL GUI SOFTWARE/SERVICE - E.G PGADMIN(OR A SIMILAR, E.G MONGODB COMPASS - FOR MONGODB), TO VIEW THEM.
 
-4. Start your main app/API server.
+9. Start your main app/API server.
 
 ```bash
 npm run dev
@@ -229,7 +231,7 @@ Your API server should start up and be accessible via port 5000 - `http://localh
 }
 ```
 
-5. Take a deep breath, reward yourself with a coffee break, and return to hack on.
+10. Take a deep breath, reward yourself with a coffee break, and return to hack on.
 
 ## Prisma-specific Guides.
 
