@@ -3,6 +3,8 @@
 > This project was bootstrapped from this template: **https://github.com/Okpainmo/multi-db-nodejs-express-with-typescript-and-zod-template**. All the below README guides are for the
 > original template setup.
 
+**Read [this awesome article](https://blog.zedlabs.xyz/cloud-and-devops/complete_nodejs-back-end-deployment-on-aws-ec2) to learn how to deploy a production-grade NodeJs/ExpressJs API server that is built with this template**
+
 ---
 
 This beautiful template, is a highly flexible, function-based and domain-driven-development(DDD)-inspired NodeJs/Express(with Typescript) template.
